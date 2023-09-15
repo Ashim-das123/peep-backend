@@ -1,0 +1,32 @@
+import mongoose from "mongoose";
+const { ObjectId } = mongoose.Schema.Types;
+
+const userSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+
+    },
+    userName: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
+    Photo: {
+        type: String,
+
+    },
+    followers: [{ type: ObjectId, ref: "users" }],
+    following: [{ type: ObjectId, ref: "users" }]
+})
+
+const user = mongoose.model('users', userSchema);
+
+export default user;
