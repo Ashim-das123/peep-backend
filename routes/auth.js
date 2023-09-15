@@ -6,10 +6,9 @@ import {
 import { requireLogin } from '../middlewares/requireLogin.js';
 const router = express.Router();
 
-// router.get('/', (req, res) => {
-//     res.send("hello from server");
-// })
-
+router.get('/', (req, res) => {
+    res.send("hello from server");
+})
 
 router.get("/allposts", requireLogin, seeAllPosts)
 
